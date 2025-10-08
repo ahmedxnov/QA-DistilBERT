@@ -1,3 +1,7 @@
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+
 import streamlit as st 
 from src.model import load_QA_answerer
 
@@ -19,14 +23,15 @@ def main():
     with st.sidebar:
         st.markdown("## 📋 About")
         st.markdown("🎯 This app uses DistilBERT to answer questions based on provided context.")
-        st.markdown(" The model used is [distilbert-base-uncased-distilled-squad](https://huggingface.co/distilbert-base-uncased-distilled-squad) from Hugging Face.")
         st.markdown("📊 **Performance on SQuAD v1.1:**")
         st.markdown("• **F1 Score:** 86.60%")
         st.markdown("• **Exact Match (EM):** 79.03%")
-        st.markdown("📚 [SQuAD v1.1 Dataset](https://datarepository.wolframcloud.com/resources/SQuAD-v1.1)")
-        st.markdown("👨‍💻 Developed by [Ahmad Khaled](https://www.linkedin.com/in/ahmad-khaled-hamed/)")
         st.markdown("## 🔗 Links")
+        st.markdown("🤖 [Pretrained Model](https://huggingface.co/distilbert-base-uncased-distilled-squad)")
+        st.markdown("📚 [SQuAD v1.1 Dataset](https://datarepository.wolframcloud.com/resources/SQuAD-v1.1)")
         st.markdown("[📂 GitHub Repository](https://github.com/ahmedxnov/QA-DistilBERT)")
+        st.markdown("---")
+        st.markdown("**👨‍💻 Developer:** [Ahmad Khaled](https://www.linkedin.com/in/ahmad-khaled-hamed/)")
     
     context = st.text_area("📄 Context", height=200, placeholder="Enter the context paragraph here...")
     question = st.text_input("❓ Question", placeholder="Enter your question here...")
